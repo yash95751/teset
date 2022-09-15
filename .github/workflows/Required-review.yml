@@ -11,7 +11,7 @@ jobs:
       - name: auto action
         uses: Automattic/action-required-review@v3
         with:
-          token: ${{secrets.TOKEN}}
+          token: ${{secrets.YASHTOKEN}}
           requirements: |
            - name: Everything else
              paths: unmatched
