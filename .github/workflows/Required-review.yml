@@ -5,7 +5,7 @@ on:
  # pull_request:
   #  types: [ opened, reopened, synchronize ]
 jobs:
-  check:
+  Checking:
     runs-on: self-hosted  
     steps:
       - name: auto action
