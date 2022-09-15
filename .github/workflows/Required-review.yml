@@ -1,11 +1,12 @@
-name: Pull request review is requested
+name: Checking for required Pull Request reviewers
+
+
 on:
   pull_request_review:
  # pull_request:
   #  types: [ opened, reopened, synchronize ]
 jobs:
   check:
-    name: Checking required reviews
     runs-on: self-hosted  
     steps:
       - name: auto action
