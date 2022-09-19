@@ -16,6 +16,8 @@ on:
     branches:
       - main
       - 'releases/*'
+      - newbranch
+      - new
 
 jobs:
   check-commit-message:
