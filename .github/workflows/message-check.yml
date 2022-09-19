@@ -18,6 +18,7 @@ on:
       - 'releases/*'
       - newbranch
       - new
+      - news
 
 jobs:
   check-commit-message:
