@@ -10,7 +10,7 @@ jobs:
       - name: auto action
         uses: Automattic/action-required-review@v3
         with:
-          token: ${{secrets.YASHTOKEN}}
+          token: ${{secrets.HII}}
           requirements: |
            - name: Everything else
              paths: unmatched
@@ -21,4 +21,4 @@ jobs:
           
       - name: Fetch API Data for github
         run: |
-            curl --request GET 'https://api.github.com/orgs/yash95751/teams/leads/members' --header 'Accept: application/vnd.github+json' --header 'Authorization: Bearer ${{secrets.YASHTOKEN}}'
+            curl --request GET 'https://api.github.com/orgs/yash95751/teams/leads/members' --header 'Accept: application/vnd.github+json' --header 'Authorization: Bearer ${{secrets.HII}}'
