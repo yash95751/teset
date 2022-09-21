@@ -1,11 +1,6 @@
 name: 'Commit Message Check'
 on:
   push:
-    branches:
-      - main
-      - newbranch
-      - new
-
 jobs:
   check-commit-message:
     name: Check Commit Message
@@ -14,6 +9,6 @@ jobs:
       - name: Check Commit Type
         uses: gsactions/commit-message-checker@v1
         with:
-          pattern: '\[[^]]+\] .+$'
+          pattern: '^(((LTKP|LSP|TKP)\-\d{2,4}($|\s|\n))|(Merge branch)|(\d+\.\d+\.\d+)'
           flags: 'gm'
           error: 'Your first line has to contain a commit type like "[JIRA-NUMBER]".'
