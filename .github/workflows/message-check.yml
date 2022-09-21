@@ -1,17 +1,5 @@
 name: 'Commit Message Check'
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
   push:
     branches:
       - main
@@ -27,6 +15,6 @@ jobs:
       - name: Check Commit Type
         uses: gsactions/commit-message-checker@v1
         with:
-          pattern: '[JIRA\-[0-9]+\]'
+          pattern: '[JIRA\-[0-9]+\] .$'
           flags: 'gm'
-          error: 'Your first line has to contain a commit type like "[BUGFIX]".'
+          error: 'Your first line has to contain a commit type like "[JIRA-567]".'
