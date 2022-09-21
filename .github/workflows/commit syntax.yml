@@ -12,6 +12,14 @@ jobs:
           --header 'Accept: application/vnd.github+json' \
           --header 'Authorization: Bearer ${{secrets.YASHTOKEN}}' \
           --header 'Cookie: _octo=GH1.1.856630408.1662440634; logged_in=no' -o data.json
-          jq '.[] | {sha: .sha}' data.json
+      
+      - name: Extract sha
+        uses: sergeysova/jq-action@v2
+        id: sha
+        with:
+          cmd: 'jq .sha package.json -r'
+      
+      - name: Show my version
+        run: 'echo "sha ${{ steps.sha.outputs.value }}"'
 
   
