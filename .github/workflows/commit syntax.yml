@@ -8,9 +8,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: |
-          response = $(curl --request GET 'https://api.github.com/repos/yash95751/teset/commits/${{github.ref}}' \
+          response_of = $(curl --request GET 'https://api.github.com/repos/yash95751/teset/commits/${{github.ref}}' \
           --header 'Accept: application/vnd.github+json' \
           --header 'Authorization: Bearer ${{secrets.YASHTOKEN}}' \
           --header 'Cookie: _octo=GH1.1.856630408.1662440634; logged_in=no')
-          echo $response
+          echo $response_of
   
