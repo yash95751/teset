@@ -17,7 +17,7 @@ jobs:
         uses: sergeysova/jq-action@v2
         id: sha
         with:
-          cmd: 'jq .sha package.json -r'
+          cmd: 'jq .sha data.json -r'
       
       - name: Show my version
         run: 'echo "sha ${{ steps.sha.outputs.value }}"'
