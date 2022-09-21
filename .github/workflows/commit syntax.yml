@@ -13,18 +13,17 @@ jobs:
           --header 'Authorization: Bearer ${{secrets.YASHTOKEN}}' \
           --header 'Cookie: _octo=GH1.1.856630408.1662440634; logged_in=no' -o data.json
       
-      - name: Extract all keywords from package.json
-        uses: sergeysova/jq-action@v2
-        id: keywords
-        with:
-          cmd: 'jq .keywords[] data.json -r'
-          multiline: true
-      
-      - name: Show keywords
+      - name: data from json
         run: |
-          keywords="${{ steps.keywords.outputs.value }}"
-          for keyword in $keywords; do
-            echo "$keyword"
-          done
+          content=`cat ./path/to/package.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+      - name: echo data
+        run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
 
   
