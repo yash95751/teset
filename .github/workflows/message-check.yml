@@ -17,4 +17,4 @@ jobs:
         with:
           pattern: '[JIRA\-[0-9]+\] .$'
           flags: 'gm'
-          error: 'Your first line has to contain a commit type like "[JIRA-567]".'
+          error: 'Your first line has to contain a commit type like "[JIRA-NUMBER]".'
