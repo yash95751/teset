@@ -1,8 +1,7 @@
 name: checking commit message
 on:
   push
-env: 
-  reponse_of: ""
+
 jobs:
   checkking:
     runs-on: self-hosted
@@ -13,4 +12,6 @@ jobs:
           --header 'Authorization: Bearer ${{secrets.YASHTOKEN}}' \
           --header 'Cookie: _octo=GH1.1.856630408.1662440634; logged_in=no')
           echo $response_of
+        env: 
+          response_of: ""
   
