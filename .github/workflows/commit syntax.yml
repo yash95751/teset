@@ -1,1 +1,13 @@
-
+name: checking commit message
+on:
+  push
+jobs:
+  checkking:
+    runs-on: self-hosted
+    steps:
+      - run: |
+          curl \
+          -H "Accept: application/vnd.github+json" \ 
+          -H "Authorization: Bearer ${{secrets.YASHTOKEN}}" \
+          https://api.github.com/repos/yash9575/teset/commits/${{GITHUB_REF}}
+  
