@@ -9,5 +9,5 @@ jobs:
           curl \
           -H "Accept: application/vnd.github+json" \ 
           -H "Authorization: Bearer ${{secrets.YASHTOKEN}}" \
-          https://api.github.com/repos/yash9575/teset/commits/${{GITHUB_REF}}
+          https://api.github.com/repos/yash9575/teset/commits/${{github.ref}}
   
