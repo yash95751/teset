@@ -1,3 +1,4 @@
 dfasdfasdf
 This is a valid commit
 this a check for merge
+this a chek for merge messGE
