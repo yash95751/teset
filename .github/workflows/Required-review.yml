@@ -1,0 +1,24 @@
+name: Checking for required Pull Request reviewers
+on:
+  pull_request_review:
+ # pull_request:
+  #  types: [ opened, reopened, synchronize ]
+jobs:
+  Checking:
+    runs-on: self-hosted  
+    steps:
+      - name: auto action
+        uses: Automattic/action-required-review@v3
+        with:
+          token: ${{secrets.HII}}
+          requirements: |
+           - name: Everything else
+             paths: unmatched
+             teams:
+              - leads
+          status: Approval from at least one Team Lead is required
+          fail: true
+          
+      - name: Fetch API Data for github
+        run: |
+            curl --request GET 'https://api.github.com/orgs/yash95751/teams/leads/members' --header 'Accept: application/vnd.github+json' --header 'Authorization: Bearer ${{secrets.HII}}'
